@@ -5,7 +5,7 @@ var router = express.Router();
 var oracledb = require('oracledb');
 
 
-/* GET home page. */
+/* GET 이벤트 항목 정보. */
 router.get('/:id', function(req, res, next) {
     //req.accepts('application/json');
     getData(req.params.id,res);
