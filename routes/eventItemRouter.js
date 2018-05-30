@@ -6,9 +6,9 @@ var oracledb = require('oracledb');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
     //req.accepts('application/json');
-    getData("",res);
+    getData(req.params.id,res);
 });
 
 function getData(equipSeq, res) {
@@ -38,7 +38,7 @@ function getData(equipSeq, res) {
                 RMRK_RSLT_DT
                 FROM RM_EVENT_OCCU A WHERE EQUIP_SEQ  = :seq`,
                 // WHERE manager_id = :id`,
-                [20019],  // bind value for :id
+                [equipSeq],  // bind value for :id
                 function (err, result) {
                     if (err) {
                         console.error(err.message);
