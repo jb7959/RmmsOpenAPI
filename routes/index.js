@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
 router.get('/equipment/:id/:optionNo', function(req, res, next) {
     var url = "/";
     console.log(req.params.optionNo);
@@ -16,5 +17,12 @@ router.get('/equipment/:id/:optionNo', function(req, res, next) {
     res.redirect(url);
 });
 //http://localhost:3000/equipment/20019/2
+
+//todo POST를 쓸일이 있다면, 여기서 분기 18.05.31
+// 모든 POST 호출값 405에러 405 Method Not Allowed
+router.post('/*', function (req, res, next) {
+    res.send(405);
+});
+
 
 module.exports = router;

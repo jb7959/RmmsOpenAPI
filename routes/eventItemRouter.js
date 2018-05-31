@@ -45,9 +45,14 @@ function getData(equipSeq, res) {
                         doRelease(connection);
                         return;
                     }
-                    var  returnJson = convertArrayToJson(result.rows) //JSON으로 변환된 데이터 할당
-                    res.json(returnJson);
-                    console.log(returnJson);
+                    //리턴 결과가 없을 경우
+                    if(result.rows.length == 0){
+                        res.send(404);
+                    }else{
+                        var  returnJson = convertArrayToJson(result.rows) //JSON으로 변환된 데이터 할당
+                        res.json(returnJson);
+                        console.log(returnJson);
+                    }
                     doRelease(connection);
                 });
         });
