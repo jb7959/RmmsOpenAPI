@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 router.get('/equipment/:id/:optionNo', function(req, res, next) {
     var url = "/";
     console.log(req.params.optionNo);
+    //optionNo 1 : 이벤트
     if(req.params.optionNo == 2){
       url = "/eventItems/"+ req.params.id;
     }else if(req.params.optionNo == 1){
