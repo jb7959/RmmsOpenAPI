@@ -7,14 +7,14 @@ router.get('/', function(req, res, next) {
 });
 
 //optionNo가 1이면 측정값(카산드라), 2면 이벤트값(오라클)
-router.get('/equipment/:id/:optionNo', function(req, res, next) {
+router.get('/equipment/:id', function(req, res, next) {
     var url = "/";
     console.log(req.params.optionNo);
     //optionNo 1 : 이벤트
-    if(req.params.optionNo == 2){
-      url = "/eventItems/"+ req.params.id;
-    }else if(req.params.optionNo == 1){
-      url = "/measureItems/"+ req.params.id;
+    if(req.query.option == 2){
+      url = "/eventItems/"+ req.params.id ;
+    }else if(req.query.option == 1){
+      url = "/measureItems/"+ req.params.id +"?start="+req.query.start +"&end="+req.query.end;
     }
     res.redirect(url);
 });
