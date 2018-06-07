@@ -38,17 +38,17 @@ router.get('/:id', function(req, res, next) {
     let afterStart= "";
     let afterEnd= "";
     let isRes400 = false;
-    console.log(end);
-    if(start != undefined){
+
+    //req.query.* doesn't return Type of undefined, It returns String 'undefined'
+    if(start!=='undefined'){
        afterStart = convertTimeFormatting (start, bfs => bfs.slice(0,4)+'-'+ bfs.slice(4,6) +'-'+ bfs.slice(6,8), bfs => ' '+bfs.slice(8,10)+':'+ bfs.slice(10,12)+':'+ bfs.slice(12,14));
     }
-    if(end != undefined) {
+    if(end !=='undefined') {
        afterEnd = convertTimeFormatting (end, bfs => bfs.slice(0,4)+'-'+ bfs.slice(4,6) +'-'+ bfs.slice(6,8), bfs => ' '+bfs.slice(8,10)+':'+ bfs.slice(10,12)+':'+ bfs.slice(12,14));
     }
     if(isRes400){
         res.status(400).send(`Http Response Code 400, Please check you arguments. [Received argument | start : ${start}, end : ${end}]`);
     }else {
-        console.log("$$$$$$$$$$$$$"+afterEnd);
         getData(id,afterStart,afterEnd,res);
     }
 
@@ -132,7 +132,7 @@ function getData(id, start, end, res){
         query = `select * from iotdata where id = '${id}' and etime >= '${start}'`;
         console.log(query);
     }else{
-        query =  `select * from iotdata where id = '${id}' and etime >= '${start}' and etime <= '${end}.999'` ; ///999는 해당 초의 마이크로초 올림을 위함
+        query =  `select * from iotdata where id = '${id}' and etime >= '${start}' and etime <= '${end}'` ;
         console.log(query);
     }
     client.execute(query).then(result => res.json(result.rows));
