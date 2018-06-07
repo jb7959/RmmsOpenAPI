@@ -1,0 +1,289 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "한국 전기안전공사의 Open API 서비스 입니다. 본 API 서비스는 전기안전공공플랫폼의 실시간 원격관제데이터를 RESTful-API 형태로 조회 할 수 있습니다. `API 키발급 및 자세한 정보는 한국전기안전공사로 문의바랍니다`.",
+    "version": "1.0.0",
+    "title": "한국전기안전공사 전기안전공공플랫폼 원격관제데이터 Open-API",
+    "termsOfService": "http://www.kesco.or.kr",
+    "contact": {
+      "email": "krystaloh@kesco.or.kr"
+    },
+    "license": {
+      "name": "KESCO",
+      "url": "http://www.kesco.or.kr"
+    }
+  },
+  "host": "openapi.kesco.or.kr",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "Equipment",
+      "description": "실시간 IoT 장치별 측정 데이터 및 이벤트 현황 조회",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://www.kesco.or.kr"
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/Equipment/{EquipmentId}": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "summary": "현재 id의 실시간 데이터 조회",
+        "description": "현재 id의 실시간 데이터 조회합니다. Option값 '1' 은 현재 측정데이터 조회이며, '2'는 이벤트 정보 조회입니다. 옵션값 '2'의 경우 start 및 end에 해당하는 시간 필터가 가능합니다.",
+        "operationId": "addPet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "EquipmentId",
+            "in": "path",
+            "description": "ID of pet to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "Option",
+            "in": "query",
+            "description": "1 -> 현재측정데이터<br> 2 -> 이벤트 데이터 ",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Option 2 (현재데이터)에서 검색의 시작 지점<br>Format 1 : yyyymmddhhmmss 또는 yyyy-mm-dd hh:mm:ss <br> Format 2 : yyyymmdd 또는 yyyy-mm-dd",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "type": "string",
+            "description": "Option 2 (현재데이터)에서 검색의 시작 지점<br>Format 1 : yyyymmddhhmmss 또는 yyyy-mm-dd hh:mm:ss <br> Format 2 : yyyymmdd 또는 yyyy-mm-dd",
+            "required": false
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Order": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "petId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "EquipmentId": {
+          "type": "string",
+          "description": "장치식별자",
+          "enum": [
+            "placed",
+            "approved",
+            "delivered"
+          ]
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "Order Status",
+          "enum": [
+            "placed",
+            "approved",
+            "delivered"
+          ]
+        },
+        "complete": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "xml": {
+        "name": "Order"
+      }
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "Category"
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "userStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "User Status"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "Tag"
+      }
+    },
+    "Pet": {
+      "type": "object",
+      "required": [
+        "name",
+        "photoUrls"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "name": {
+          "type": "string",
+          "example": "doggie"
+        },
+        "photoUrls": {
+          "type": "array",
+          "xml": {
+            "name": "photoUrl",
+            "wrapped": true
+          },
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "xml": {
+            "name": "tag",
+            "wrapped": true
+          },
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "pet status in the store",
+          "enum": [
+            "available",
+            "pending",
+            "sold"
+          ]
+        }
+      },
+      "xml": {
+        "name": "Pet"
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
