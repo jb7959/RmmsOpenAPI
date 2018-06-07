@@ -12,6 +12,17 @@ var eventItemRouter = require('./routes/eventItemRouter');
 
 var app = express();
 
+
+//swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json'); // https://editor.swagger.io/에서 수정 및 제작가능
+//const swaggerSpec = swaggerJSDoc(options);
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

@@ -13,6 +13,13 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
-    "oracledb": "^2.2.0"
+    "oracledb": "^2.2.0",
+    "swagger-jsdoc": "^1.9.7",
+    "swagger-ui": "^3.17.0",
+    "swagger-ui-express": "^3.0.9"
+  },
+  "devDependencies": {
+    "swagger": "^0.7.5",
+    "swagger-editor": "^3.5.7"
   }
 }
