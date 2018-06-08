@@ -36,7 +36,7 @@
         ],
         "summary": "현재 id의 실시간 데이터 조회",
         "description": "현재 id의 실시간 데이터 조회합니다. Option값 '1' 은 현재 측정데이터 조회이며, '2'는 이벤트 정보 조회입니다. 옵션값 '2'의 경우 start 및 end에 해당하는 시간 필터가 가능합니다.",
-        "operationId": "addPet",
+        "operationId": "measuredData",
         "consumes": [
           "application/json"
         ],
@@ -47,7 +47,7 @@
           {
             "name": "EquipmentId",
             "in": "path",
-            "description": "ID of pet to return",
+            "description": "관제장치 식별자",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -75,8 +75,29 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Http Response Code 400, Please check you arguments. [Received argument | start : 20180601, end : 20180632]"
+          },
           "405": {
-            "description": "Invalid input"
+            "description": "Method Not Allowed"
+          },
+          "200 (Option:1)": {
+            "description": "successful operation (Option1 현재IoT측정데이터)",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Equipment"
+              }
+            }
+          },
+          "200 (Option:2)": {
+            "description": "successful operation (Option2 현재IoT이벤트데이터 ",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EventData"
+              }
+            }
           }
         },
         "security": [
@@ -96,8 +117,8 @@
       "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
       "flow": "implicit",
       "scopes": {
-        "write:pets": "modify pets in your account",
-        "read:pets": "read your pets"
+        "write:measuredData": "modify measured data in your account",
+        "read:measuredData": "read your measured data"
       }
     },
     "api_key": {
@@ -107,181 +128,121 @@
     }
   },
   "definitions": {
-    "Order": {
+    "Equipment": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "petId": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "EquipmentId": {
           "type": "string",
-          "description": "장치식별자",
-          "enum": [
-            "placed",
-            "approved",
-            "delivered"
-          ]
+          "example": "000494"
         },
-        "quantity": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "shipDate": {
+        "etime": {
           "type": "string",
-          "format": "date-time"
+          "example": "2018-05-13T04:10:35.216Z"
         },
-        "status": {
+        "alarm": {
           "type": "string",
-          "description": "Order Status",
-          "enum": [
-            "placed",
-            "approved",
-            "delivered"
-          ]
+          "example": "51/000"
         },
-        "complete": {
-          "type": "boolean",
-          "default": false
+        "cat": {
+          "type": "string",
+          "example": "null"
+        },
+        "measure": {
+          "type": "object",
+          "$ref": "#/definitions/Measure"
+        },
+        "sub": {
+          "type": "string",
+          "example": "kesco"
         }
-      },
-      "xml": {
-        "name": "Order"
       }
     },
-    "Category": {
+    "EventData": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "name": {
-          "type": "string"
-        }
-      },
-      "xml": {
-        "name": "Category"
-      }
-    },
-    "User": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "username": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "userStatus": {
-          "type": "integer",
-          "format": "int32",
-          "description": "User Status"
-        }
-      },
-      "xml": {
-        "name": "User"
-      }
-    },
-    "Tag": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "name": {
-          "type": "string"
-        }
-      },
-      "xml": {
-        "name": "Tag"
-      }
-    },
-    "Pet": {
-      "type": "object",
-      "required": [
-        "name",
-        "photoUrls"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "category": {
-          "$ref": "#/definitions/Category"
-        },
-        "name": {
+        "eventName": {
           "type": "string",
-          "example": "doggie"
+          "example": "저항성누설전류주의"
         },
-        "photoUrls": {
-          "type": "array",
-          "xml": {
-            "name": "photoUrl",
-            "wrapped": true
-          },
-          "items": {
-            "type": "string"
-          }
-        },
-        "tags": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
-          },
-          "items": {
-            "$ref": "#/definitions/Tag"
-          }
-        },
-        "status": {
+        "occurrenceTime": {
           "type": "string",
-          "description": "pet status in the store",
-          "enum": [
-            "available",
-            "pending",
-            "sold"
-          ]
+          "example": "2017-12-05T19:01:59.000Z"
+        },
+        "siteName": {
+          "type": "string",
+          "example": "외암리 199 (외암민속길9번길 8)"
+        },
+        "equipmentSeq": {
+          "type": "string",
+          "example": "3020"
+        },
+        "equipmentName": {
+          "type": "string",
+          "example": "외암리 195 (외암민속길 33)"
+        },
+        "measureValue": {
+          "type": "string",
+          "example": "256.21464"
+        },
+        "eventLevel": {
+          "type": "string",
+          "example": "주의"
+        },
+        "handlingResult": {
+          "type": "string",
+          "example": "조치중"
+        },
+        "handlingTime": {
+          "type": "string",
+          "example": "2017-12-08T07:24:24.000Z"
         }
-      },
-      "xml": {
-        "name": "Pet"
       }
     },
-    "ApiResponse": {
+    "Measure": {
       "type": "object",
       "properties": {
-        "code": {
+        "amp": {
+          "type": "number",
+          "format": "double",
+          "example": 0.003612
+        },
+        "coId": {
           "type": "integer",
-          "format": "int32"
+          "format": "double",
+          "example": 1
         },
-        "type": {
-          "type": "string"
+        "e1": {
+          "type": "integer",
+          "format": "double"
         },
-        "message": {
-          "type": "string"
+        "e2": {
+          "type": "integer",
+          "format": "double"
+        },
+        "leakAmp": {
+          "type": "integer",
+          "format": "double",
+          "example": 0.011234
+        },
+        "leakResi": {
+          "type": "integer",
+          "format": "double",
+          "example": 0.011006
+        },
+        "ohm": {
+          "type": "integer",
+          "format": "double",
+          "example": 19.87072
+        },
+        "volt": {
+          "type": "integer",
+          "format": "double",
+          "example": 218.6904
+        },
+        "watt": {
+          "type": "integer",
+          "format": "double",
+          "example": 0.790871
         }
       }
     }
