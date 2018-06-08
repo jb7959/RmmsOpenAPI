@@ -4,6 +4,8 @@ var router = express.Router();
 //oracledb 연동
 var oracledb = require('oracledb');
 
+//환경변수 파일 .env를 위한 dotenv설정
+require('dotenv').config();
 
 /* GET 이벤트 항목 정보. */
 router.get('/:id', function(req, res, next) {
@@ -13,12 +15,12 @@ router.get('/:id', function(req, res, next) {
 
 function getData(equipSeq, res) {
 
-//oracle 연동시작
+//oracle 연동시작 (.env에 설정)
     oracledb.getConnection(
         {
-            user: "rmmsonly",
-            password: "rmmsonly",
-            connectString: "192.168.0.73:1522/ORCL"
+            user: process.env.ORA_USER,
+            password: process.env.ORA_PW,
+            connectString: process.env.ORA_CON
         },
         function (err, connection) {
             if (err) {

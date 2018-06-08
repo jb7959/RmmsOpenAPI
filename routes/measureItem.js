@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
+//환경변수 파일 .env를 위한 dotenv설정
+require('dotenv').config();
+
 /*카산드라 드라이버*/ //https://github.com/datastax/nodejs-driver 참고
 const cassandra = require('cassandra-driver');
 //후보 컨텍포인트 지정가능
 //const client = new cassandra.Client({ contactPoints: ['192.168.0.55:9042', '192.168.0.55:9042'], keyspace: 'sensordb' });
-const client = new cassandra.Client({ contactPoints: ['192.168.0.55:9042'] , keyspace: 'sensordb'});
+const client = new cassandra.Client({ contactPoints: [process.env.CASSA_CONP] , keyspace: process.env.CASSA_KS});
 
 //쿼리 동작 안할때 예외처리
 process.on('unhandledRejection', (reason, p) => {

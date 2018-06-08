@@ -12,6 +12,9 @@ var eventItemRouter = require('./routes/eventItemRouter');
 
 var app = express();
 
+//환경변수 파일 .env를 위한 dotenv설정
+require('dotenv').config();
+
 
 //swagger
 const swaggerUi = require('swagger-ui-express');
