@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    .form-style-10
+      h1
+        | KESCO OpenAPI Token-Key
+        span 전기안전공공플랫폼 원격관제데이터 OpenAPI Token을 생성합니다.
+      form(action='/authToken/new', method='post')
+        .section
+          span 1
+          | API 사용자 이름
+        .inner-wrap
+          label
+            | User's Name
+            input(type='text', name='name')
+
+        .section
+          span 2
+          | 사용자 연락처
+        .inner-wrap
+          label
+            | Email Address
+            input(type='email', name='email')
+          label
+            | Phone Number
+            input(type='text', name='phone')
+        .section
+          span 3
+          | 관리자 승인번호
+        .inner-wrap
+          label
+            | 관리자승인번호 (사전에 등록된 KESCO API 관리자 승인번호.)
+            input(type='password', name='AUTH_MANAGER_PW')
+        .button-section
+          input(type='submit', name='Sign Up')
+        br
+        h5 (문의사항 : 한국전기안전공사 오수정 주임 / krystaloh@kesco.or.kr)
+
+

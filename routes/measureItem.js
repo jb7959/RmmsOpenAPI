@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+//토큰확인용
+var jwt = require('jsonwebtoken');
+
 //환경변수 파일 .env를 위한 dotenv설정
 require('dotenv').config();
 
@@ -28,6 +31,10 @@ process.on('unhandledRejection', (reason, p) => {
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
+});
+
+router.post('/*', function (req, res, next) {
+    res.send(405);
 });
 
 router.get('/:id', function(req, res, next) {

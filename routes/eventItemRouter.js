@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+//토큰확인용
+var jwt = require('jsonwebtoken');
+
 //oracledb 연동
 var oracledb = require('oracledb');
 
@@ -11,6 +14,10 @@ require('dotenv').config();
 router.get('/:id', function(req, res, next) {
     //req.accepts('application/json');
     getData(req.params.id,res);
+});
+
+router.post('/*', function (req, res, next) {
+    res.send(405);
 });
 
 function getData(equipSeq, res) {

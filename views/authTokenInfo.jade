@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .form-style-10
+      h1
+        | KESCO OpenAPI Token-Key
+        span 전기안전공공플랫폼 원격관제데이터 Token-Key 발급정보
+       h4
+        span #{name}님의 API Token-Key
+        br
+        textarea(rows='4', cols='50', readonly='')
+          | #{token}
+        br
+        h5 (문의사항 : 한국전기안전공사 오수정 주임 / krystaloh@kesco.or.kr)
+
+

@@ -3,26 +3,23 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var jwt = require('jsonwebtoken');
 
 //컨트롤러 분배
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var measureItemRouter = require('./routes/measureItem');
 var eventItemRouter = require('./routes/eventItemRouter');
+var authToken = require('./routes/authToken');
 
 var app = express();
 
 //환경변수 파일 .env를 위한 dotenv설정
 require('dotenv').config();
 
-
 //swagger
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json'); // https://editor.swagger.io/에서 수정 및 제작가능
-//const swaggerSpec = swaggerJSDoc(options);
-//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
@@ -36,11 +33,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//body-parser
+//const bodyParser = require('body-parser');
+//app.use(bodyParser);
+app.use(express.json());
+
 //컨트롤러 분배 적용
 app.use('/', indexRouter);
 app.use('/eventItems', eventItemRouter);
 app.use('/users', usersRouter);
 app.use('/measureItems', measureItemRouter);
+app.use('/authToken', authToken);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
