@@ -23,7 +23,7 @@ router.get('/authenticator', function(req, res, next) {
 // 에러: 토큰기간이 지났을때 : TokenExpiredError, 토큰대칭키가 다를때 및 토큰이 이상할떄 : JsonWebTokenError
 function isAuthenticated(token) {
     try {
-        let decoded = jwt.verify(token,SECRET);
+        let decoded = jwt.verify(token.trim(),SECRET);
         return decoded
     }catch (e) {
         return e.name;
