@@ -36,6 +36,7 @@ router.get('/equipment/:id', function(req, res, next) {
     let flag  = true;
     console.log(isAuthenticated(req.get('X-Auth-Token')));
     console.log(req.get('X-Auth-Token'));
+    if(req.get('X-Auth-Token')===undefined){flag = false; console.log('0')}
     if(isAuthenticated(req.get('X-Auth-Token'))==='TokenExpiredError'){flag = false; console.log('1')}
     if(isAuthenticated(req.get('X-Auth-Token'))==='JsonWebTokenError'){flag = false; console.log('2')}
     if(req.get('X-Auth-Token')===process.env.AUTH_MANAGER_PW){flag = true; console.log('3')}
