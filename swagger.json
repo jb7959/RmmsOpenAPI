@@ -13,7 +13,7 @@
       "url": "http://www.kesco.or.kr"
     }
   },
-  "host": "openapi.kesco.or.kr",
+  "host": "https://kp.esps.or.kr/equipment",
   "basePath": "/v2",
   "tags": [
     {
