@@ -29,7 +29,7 @@
     "http"
   ],
   "paths": {
-    "/Equipment/{EquipmentId}": {
+    "/equipment/{EquipmentId}": {
       "get": {
         "tags": [
           "Equipment"

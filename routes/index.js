@@ -10,9 +10,9 @@ let jwt = require('jsonwebtoken');
 let SECRET = process.env.TOKEN_KESCO_KEY; //토큰의 대칭키
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-});
+});*/
 
 /* API 키생성 폼 */
 router.get('/authenticator', function(req, res, next) {
@@ -31,7 +31,7 @@ function isAuthenticated(token) {
 }
 
 //optionNo가 1이면 측정값(카산드라), 2면 이벤트값(오라클)
-router.get('/equipment/:id', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
     //토큰만료(TokenExpiredError), 토큰키 이상 (TokenExpiredError)이 아닐때, 혹은 AUTH_MANAGER_PW 값으로 들어올때.
     let flag  = true;
     console.log(isAuthenticated(req.get('X-Auth-Token')));
@@ -45,7 +45,7 @@ router.get('/equipment/:id', function(req, res, next) {
         console.log(req.params.optionNo);
         //optionNo 1 : 이벤트
         if(req.query.option == 2){
-            //url = "/eventItems/"+ req.params.id ;
+            url = "/eventItems/"+ req.params.id ;
         }else if(req.query.option == 1){
             url = "/measureItems/"+ req.params.id +"?start="+req.query.start +"&end="+req.query.end;
         }

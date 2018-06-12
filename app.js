@@ -62,9 +62,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //const bodyParser = require('body-parser');
 //app.use(bodyParser);
 app.use(express.json());
-
+//11442
 //컨트롤러 분배 적용
-app.use('/', indexRouter);
+app.use('/equipment', indexRouter);
 app.use('/eventItems', eventItemRouter);
 app.use('/users', usersRouter);
 app.use('/measureItems', measureItemRouter);
