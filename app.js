@@ -21,7 +21,31 @@ require('dotenv').config();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json'); // https://editor.swagger.io/에서 수정 및 제작가능
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+//swagger-ui-express CSS,JS 옵션
+var options = {
+    //customCss: '.swagger-ui .topbar { content:url("") }'
+    customCss: `.swagger-ui .topbar-wrapper img[alt="Swagger UI"],
+                .topbar-wrapper span {
+                  visibility: hidden;
+                 }
+                .topbar-wrapper span:after {
+                    content: ' ';
+                    background-image: url('/images/KESCO_LOGO 307x36_32b.png');
+                    background-repeat: no-repeat;
+                    back 
+                    color: #fsfsff;
+                    width: 307px;
+                    height:36px;
+                    visibility: visible;
+                    display: block;
+                    position: absolute;
+                    padding: 5px;
+                    top: 5px;
+                    left: 3%;
+                },`
+};
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
