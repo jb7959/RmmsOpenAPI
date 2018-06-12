@@ -30,7 +30,7 @@ var options = {
                  }
                 .topbar-wrapper span:after {
                     content: ' ';
-                    background-image: url('/images/KESCO_LOGO 307x36_32b.png');
+                    background-image: url('/images/api_logo.png');
                     background-repeat: no-repeat;
                     back 
                     color: #fsfsff;
@@ -40,9 +40,10 @@ var options = {
                     display: block;
                     position: absolute;
                     padding: 5px;
-                    top: 5px;
+                    top: 1%;
                     left: 3%;
                 },`
+    /*customJs: '/custom.js'*/
 };
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));

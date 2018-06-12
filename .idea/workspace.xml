@@ -4,6 +4,7 @@
     <list default="true" id="a989d622-7538-49fa-bfd5-8b95791c70f8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/swagger-ui-express/static/swagger-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/swagger-ui-express/static/swagger-ui.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,10 +16,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
+            <state relative-caret-position="165">
               <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
             </state>
           </provider>
@@ -27,8 +28,8 @@
       <file leaf-file-name="swagger-ui.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/swagger-ui-express/static/swagger-ui.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="1" column="148896" selection-start-line="1" selection-start-column="148882" selection-end-line="1" selection-end-column="148896" />
+            <state relative-caret-position="156">
+              <caret line="1" column="148860" selection-start-line="1" selection-start-column="148860" selection-end-line="1" selection-end-column="148860" />
             </state>
           </provider>
         </entry>
@@ -72,7 +73,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="swagger.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="swagger.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/swagger.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
@@ -117,9 +118,11 @@
       <find>petstore_auth</find>
       <find>&lt;span&gt;swagger&lt;/span&gt;</find>
       <find>topbar</find>
+      <find>#89bf04</find>
       <find>topbar-wrapper</find>
     </findStrings>
     <replaceStrings>
+      <replace>#003399</replace>
       <replace>*</replace>
     </replaceStrings>
   </component>
@@ -141,12 +144,13 @@
         <option value="$PROJECT_DIR$/routes/measureItem.js" />
         <option value="$PROJECT_DIR$/routes/eventItemRouter.js" />
         <option value="$PROJECT_DIR$/routes/authToken.js" />
-        <option value="$PROJECT_DIR$/swagger.json" />
         <option value="$PROJECT_DIR$/Readme.md" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/node_modules/swagger-editor/dist/swagger-editor.css" />
         <option value="$PROJECT_DIR$/public/javascripts/custom.js" />
+        <option value="$PROJECT_DIR$/node_modules/swagger-ui-express/static/swagger-ui.css" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/swagger.json" />
       </list>
     </option>
   </component>
@@ -240,6 +244,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\doublem\RmmsOpenAPI\public\images" />
       <recent name="C:\Users\Administrator\doublem\RmmsOpenAPI\views" />
       <recent name="C:\Users\Administrator\doublem\RmmsOpenAPI\public\font" />
       <recent name="C:\Users\Administrator\doublem\RmmsOpenAPI" />
@@ -317,7 +322,7 @@
       <updated>1527644224287</updated>
       <workItem from="1527644365949" duration="678000" />
       <workItem from="1527645082519" duration="78806000" />
-      <workItem from="1528707258285" duration="6998000" />
+      <workItem from="1528707258285" duration="8535000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1527646337032</created>
@@ -431,14 +436,22 @@
       <option name="project" value="LOCAL" />
       <updated>1528448838297</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="스웨거 포맷 수정">
+      <created>1528767413385</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1528767413386</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86482000" />
+    <option name="totallyTimeSpent" value="88019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -495,7 +508,8 @@
     <MESSAGE value="#2 JWT를 이용한 인증키 발급&#10;안내페이지 수정" />
     <MESSAGE value="추가" />
     <MESSAGE value="오류수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="오류수정" />
+    <MESSAGE value="스웨거 포맷 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="스웨거 포맷 수정" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/routes/index.js">
@@ -788,20 +802,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/swagger-ui-express/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/swagger-ui-express/indexTemplate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/swagger-ui-express/static/swagger-ui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="1" column="148896" selection-start-line="1" selection-start-column="148882" selection-end-line="1" selection-end-column="148896" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/swagger-ui-express/swagger-ui-init.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -823,10 +823,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/swagger.json">
+    <entry file="file://$PROJECT_DIR$/node_modules/swagger-ui-express/indexTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="236">
+          <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -840,10 +840,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/swagger-ui-express/static/swagger-ui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="1" column="148860" selection-start-line="1" selection-start-column="148860" selection-end-line="1" selection-end-column="148860" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
+        <state relative-caret-position="165">
           <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swagger.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
         </state>
       </provider>
     </entry>
