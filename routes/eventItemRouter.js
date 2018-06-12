@@ -5,7 +5,7 @@ var router = express.Router();
 var jwt = require('jsonwebtoken');
 
 //oracledb 연동
-var oracledb = require('oracledb');
+//var oracledb = require('oracledb');
 
 //환경변수 파일 .env를 위한 dotenv설정
 require('dotenv').config();
@@ -13,12 +13,13 @@ require('dotenv').config();
 /* GET 이벤트 항목 정보. */
 router.get('/:id', function(req, res, next) {
     //req.accepts('application/json');
-    getData(req.params.id,res);
+    //getData(req.params.id,res);
 });
 
 router.post('/*', function (req, res, next) {
     res.send(405);
 });
+/*
 
 function getData(equipSeq, res) {
 
@@ -94,6 +95,7 @@ function getData(equipSeq, res) {
         return objList;
     }
 }
+*/
 
 
 

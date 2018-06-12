@@ -45,7 +45,7 @@ router.get('/equipment/:id', function(req, res, next) {
         console.log(req.params.optionNo);
         //optionNo 1 : 이벤트
         if(req.query.option == 2){
-            url = "/eventItems/"+ req.params.id ;
+            //url = "/eventItems/"+ req.params.id ;
         }else if(req.query.option == 1){
             url = "/measureItems/"+ req.params.id +"?start="+req.query.start +"&end="+req.query.end;
         }
