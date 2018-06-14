@@ -17,7 +17,7 @@
   "basePath": "/v2",
   "tags": [
     {
-      "name": "Equipment",
+      "name": "equipment",
       "description": "실시간 IoT 장치별 측정 데이터 및 이벤트 현황 조회",
       "externalDocs": {
         "description": "Find out more",
@@ -29,7 +29,7 @@
     "http"
   ],
   "paths": {
-    "/equipment/{EquipmentId}": {
+    "/equipment/{equipmentId}": {
       "get": {
         "tags": [
           "Equipment"
