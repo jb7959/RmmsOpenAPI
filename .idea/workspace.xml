@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a989d622-7538-49fa-bfd5-8b95791c70f8" name="Default" comment="uri 수정">
+    <list default="true" id="a989d622-7538-49fa-bfd5-8b95791c70f8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/eventItemRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/eventItemRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="eventItemRouter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/eventItemRouter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+            <state relative-caret-position="182">
+              <caret line="13" selection-start-line="13" selection-end-line="16" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -85,8 +84,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="411">
+              <caret line="115" column="39" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -337,7 +336,7 @@
       <workItem from="1527644365949" duration="678000" />
       <workItem from="1527645082519" duration="78806000" />
       <workItem from="1528707258285" duration="12239000" />
-      <workItem from="1528790852229" duration="12962000" />
+      <workItem from="1528790852229" duration="16146000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1527646337032</created>
@@ -493,11 +492,25 @@
       <option name="project" value="LOCAL" />
       <updated>1528934804685</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="리다이렉트 -&gt; equipment 단일 경로로 수정&#10;1. 현재는 카산드라의 측정이벤트 부분까지만.&#10;#3 수정중">
+      <created>1528966618836</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1528966618836</updated>
+    </task>
+    <task id="LOCAL-00024" summary="#3 end조건 안먹히는부분 해결">
+      <created>1529021359843</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1529021359843</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104685000" />
+    <option name="totallyTimeSpent" value="107869000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -563,7 +576,9 @@
     <MESSAGE value="오라클 제외" />
     <MESSAGE value="URL 시작 / 에서 /equipment로 수정" />
     <MESSAGE value="uri 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="uri 수정" />
+    <MESSAGE value="리다이렉트 -&gt; equipment 단일 경로로 수정&#10;1. 현재는 카산드라의 측정이벤트 부분까지만.&#10;#3 수정중" />
+    <MESSAGE value="#3 end조건 안먹히는부분 해결" />
+    <option name="LAST_COMMIT_MESSAGE" value="#3 end조건 안먹히는부분 해결" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/swagger.json">
@@ -888,20 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/eventItemRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/measureItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="851">
@@ -909,10 +910,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/eventItemRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="13" selection-start-line="13" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="411">
+          <caret line="115" column="39" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
         </state>
       </provider>
     </entry>
