@@ -32,7 +32,7 @@
     "/equipment/{equipmentId}": {
       "get": {
         "tags": [
-          "Equipment"
+          "equipment"
         ],
         "summary": "현재 id의 실시간 데이터 조회",
         "description": "현재 id의 실시간 데이터 조회합니다. Option값 '1' 은 현재 측정데이터 조회이며, '2'는 이벤트 정보 조회입니다. 옵션값 '2'의 경우 start 및 end에 해당하는 시간 필터가 가능합니다.",
@@ -52,7 +52,7 @@
             "type": "string"
           },
           {
-            "name": "EquipmentId",
+            "name": "equipmentId",
             "in": "path",
             "description": "관제장치 식별자",
             "required": true,
@@ -93,7 +93,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Equipment"
+                "$ref": "#/definitions/equipment"
               }
             }
           },
@@ -102,7 +102,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/EventData"
+                "$ref": "#/definitions/eventData"
               }
             }
           }
@@ -126,7 +126,7 @@
     }
   },
   "definitions": {
-    "Equipment": {
+    "equipment": {
       "type": "object",
       "properties": {
         "id": {
@@ -147,7 +147,7 @@
         },
         "measure": {
           "type": "object",
-          "$ref": "#/definitions/Measure"
+          "$ref": "#/definitions/measure"
         },
         "sub": {
           "type": "string",
@@ -155,7 +155,7 @@
         }
       }
     },
-    "EventData": {
+    "eventData": {
       "type": "object",
       "properties": {
         "eventName": {
@@ -196,7 +196,7 @@
         }
       }
     },
-    "Measure": {
+    "measure": {
       "type": "object",
       "properties": {
         "amp": {

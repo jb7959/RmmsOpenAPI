@@ -30,7 +30,7 @@ var options = {
                  }
                 .topbar-wrapper span:after {
                     content: ' ';
-                    background-image: url('/images/api_logo.png');
+                    background-image: url('/equipment/images/api_logo.png');
                     background-repeat: no-repeat;
                     back 
                     color: #fsfsff;
