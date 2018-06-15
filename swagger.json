@@ -77,7 +77,7 @@
             "name": "end",
             "in": "query",
             "type": "string",
-            "description": "Option 2 (현재데이터)에서 검색의 시작 지점<br>Format 1 : yyyymmddhhmmss 또는 yyyy-mm-dd hh:mm:ss <br> Format 2 : yyyymmdd 또는 yyyy-mm-dd",
+            "description": "Option 2 (현재데이터)에서 검색의 종료 지점<br>Format 1 : yyyymmddhhmmss 또는 yyyy-mm-dd hh:mm:ss <br> Format 2 : yyyymmdd 또는 yyyy-mm-dd",
             "required": false
           }
         ],
