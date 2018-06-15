@@ -90,24 +90,21 @@ function getMesureItems(req, res) {
     let isRes400 = false;
 
     //req.query.* doesn't return Type of undefined, It returns String 'undefined'
-    if(start!==undefined){
+    if(start!=='undefined'){
         obj = convertTimeFormatting (start, bfs => bfs.slice(0,4)+'-'+ bfs.slice(4,6) +'-'+ bfs.slice(6,8), bfs => ' '+bfs.slice(8,10)+':'+ bfs.slice(10,12)+':'+ bfs.slice(12,14));
         afterStart = obj.afterTime;
         isRes400 = obj.isRes400;
         console.log(isRes400);
     }
-    if(end !==undefined) {
-        afterEnd = convertTimeFormatting (end, bfs => bfs.slice(0,4)+'-'+ bfs.slice(4,6) +'-'+ bfs.slice(6,8), bfs => ' '+bfs.slice(8,10)+':'+ bfs.slice(10,12)+':'+ bfs.slice(12,14));
+    if(end !=='undefined') {
+        obj = convertTimeFormatting (end, bfs => bfs.slice(0,4)+'-'+ bfs.slice(4,6) +'-'+ bfs.slice(6,8), bfs => ' '+bfs.slice(8,10)+':'+ bfs.slice(10,12)+':'+ bfs.slice(12,14));
         afterEnd = obj.afterTime;
         isRes400 = obj.isRes400;
         console.log(isRes400);
     }
     if(isRes400){
-        console.log("기침1"+isRes400);
         res.status(400).send(`Http Response Code 400, Please check you arguments. [Received argument | start : ${start}, end : ${end}]`);
     }else {
-        console.log("기침2"+isRes400);
-        //res.json('1');
         getData(id,afterStart,afterEnd,res);
     }
 }
