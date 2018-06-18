@@ -245,7 +245,7 @@ function getdataFromOracle(equipSeq, res) {
         var objList = new Array();
         for (var i in array) {
             var obj = {
-                eventName: array[i][0].trim(), //이벤트명
+                eventName: array[i][0], //이벤트명
                 occurrenceTime: array[i][1], //발생시간
                 siteName: array[i][2], //현장명
                 equipmentSeq: array[i][3], //측정장치순번
