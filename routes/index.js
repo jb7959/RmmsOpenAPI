@@ -255,6 +255,17 @@ function getdataFromOracle(equipSeq, res) {
                 handlingResult: array[i][7], //처리결과 (이벤트레벨이 0 이면 null)
                 handlingTime: array[i][8] // 처리시간 (이벤트레벨이 0 이면 null)
             };
+            //null check
+
+            obj.eventName===null ? obj.eventName='111' : obj.eventName = obj.eventName.trim();
+            obj.occurrenceTime===null ? obj.eventName ='' : '';
+            obj.siteName===null ? obj.siteName='333' : obj.siteName = obj.siteName.trim();
+            obj.equipmentName===null ? obj.equipmentName='' : obj.equipmentName= obj.equipmentName.trim();
+            obj.measureValue===null ? obj.measureValue='' : '';
+            obj.eventLevel===null ? obj.eventLevel='' : obj.eventLevel= obj.eventLevel.toString().trim();
+            obj.handlingResult===null ? obj.handlingResult='' : '';
+            obj.handlingTime===null ? obj.handlingTime='' : '';
+
             objList.push(obj);
         }
         return objList;
